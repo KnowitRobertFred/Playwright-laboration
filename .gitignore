@@ -131,4 +131,5 @@ dist
 /test-results/
 /playwright-report/
 /playwright/.cache/
+playwright/.auth
 tests/saucedemo.spec.ts-snapshots/Login-to-sauce-demo-1-chromium-win32.png
