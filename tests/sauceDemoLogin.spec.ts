@@ -7,5 +7,6 @@ test('Login to sauce demo', async ({ page }) => {
   await loginPage.enterPassword('secret_sauce');
   const productsPage = await loginPage.clickLogin();
 
-  await productsPage.verifyScreenShot();
+  await productsPage.waitForNavigation();
+  await productsPage.toBeDisplayed();
 });
