@@ -1,4 +1,4 @@
-import { Locator, Page } from '@playwright/test';
+import { Locator, Page, expect } from '@playwright/test';
 import { ProductsPage } from './ProductsPage';
 
 export class LoginPage {
@@ -18,6 +18,15 @@ export class LoginPage {
 
   async gotoPage() {
     await this.page.goto(this.pageUrl);
+    await expect(this.userNameInput).toBeVisible();
+  }
+
+  async loginUser(username: string, password: string): Promise<ProductsPage> {
+    await this.enterUserName(username);
+    await this.enterPassword(password);
+    var productsPage = await this.clickLogin();
+
+    return productsPage;
   }
 
   async enterUserName(username: string) {

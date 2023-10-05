@@ -1,10 +1,12 @@
 import { test } from '@playwright/test';
-import { LoginPage } from '../Page-Object/LoginPage';
-test('Login to sauce demo', async ({ page }) => {
-  const loginPage = new LoginPage(page);
-  await loginPage.gotoPage();
-  await loginPage.enterUserName('standard_user');
-  await loginPage.enterPassword('secret_sauce');
-  const productsPage = await loginPage.clickLogin();
-  await productsPage.verifyScreenShot();
+import { ProductsPage } from '../Page-Object/ProductsPage';
+
+test.describe('Product page tests', () => {
+  let productPage: ProductsPage;
+  test.beforeEach(async ({ page }) => {
+    productPage = new ProductsPage(page);
+    await productPage.gotoPage();
+  });
+
+  test('Clicking a product opens product page', async () => {});
 });
