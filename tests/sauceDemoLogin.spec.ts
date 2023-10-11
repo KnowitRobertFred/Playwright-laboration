@@ -1,5 +1,4 @@
 import { expect, test } from '@playwright/test';
-import { Console } from 'console';
 
 test('Login to sauce demo', async ({ page }) => {
   await page.goto('https://www.saucedemo.com');
